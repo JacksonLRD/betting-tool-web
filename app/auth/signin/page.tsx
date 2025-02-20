@@ -3,7 +3,7 @@ import * as React from 'react';
 import Link from '@mui/material/Link';
 import Alert from '@mui/material/Alert';
 import { SignInPage } from '@toolpad/core/SignInPage';
-import { providerMap } from '../../../auth';
+import { providerMap } from '@/auth';
 import signIn from './actions';
 
 function ForgotPasswordLink() {

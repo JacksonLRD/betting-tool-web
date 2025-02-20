@@ -50,11 +50,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       const isLoggedIn = !!session?.user;
       const isPublicPage = nextUrl.pathname.startsWith('/public');
 
-      if (isPublicPage || isLoggedIn) {
-        return true;
-      }
+      return isPublicPage || isLoggedIn;
 
-      return false; // Redirect unauthenticated users to login page
+       // Redirect unauthenticated users to login page
     },
   },
 });
