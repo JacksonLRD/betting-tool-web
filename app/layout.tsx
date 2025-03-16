@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { NextAppProvider } from '@toolpad/core/nextjs';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import PaidIcon from '@mui/icons-material/Paid';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import type { Navigation } from '@toolpad/core/AppProvider';
 import { SessionProvider, signIn, signOut } from 'next-auth/react';
 import theme from '../theme';
-import { auth } from '../auth';
+import { auth } from '@/auth';
 
 const NAVIGATION: Navigation = [
   {
@@ -19,8 +19,8 @@ const NAVIGATION: Navigation = [
   },
   {
     segment: 'orders',
-    title: 'Orders',
-    icon: <ShoppingCartIcon />,
+    title: 'Apostas',
+    icon: <PaidIcon />,
   },
 ];
 
