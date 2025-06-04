@@ -1,0 +1,13 @@
+{
+  "sidebarItems": [
+    { "name": "Dashboard", "icon": "House", "href": "/" },
+    { "name": "Apostas", "icon": "CircleDollarSign", "href": "/apostas" },
+    { "name": "Movimentações", "icon": "ArrowLeftRight", "href": "/movimentacoes" },
+    { "name": "Diário", "icon": "NotebookText", "href": "/diario" },
+    { "name": "Relatórios", "icon": "ChartPie", "href": "/relatorios" },
+    { "name": "Configurações", "icon": "Settings", "href": "configuracoes" },
+    { "name": "Calculadora de Apostas", "icon": "Calculator", "href": "calculadora" },
+    { "name": "Exportar Dados", "icon": "Download", "href": "exportar-dados" },
+    { "name": "Ajuda", "icon": "Info", "href": "ajuda" }
+  ]
+}
