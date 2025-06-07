@@ -40,7 +40,11 @@ const BankEvolutionOverviewChart = () => {
       <div className="h-64 md:h-100">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={bankEvolutionData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#4b5563" />
+            <CartesianGrid
+              vertical={false}
+              strokeDasharray="3 3"
+              stroke="#4b5563"
+            />
             <XAxis
               dataKey="date"
               stroke="#9ca3af"
