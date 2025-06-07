@@ -81,6 +81,15 @@ const ProfitLossOverviewChart = () => {
               tick={{ fontSize: 12 }}
               width={60}
             />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: 'rgba(31, 41, 55, 0.8)',
+                borderColor: '#4b5563',
+                fontSize: '12px'
+              }}
+              itemStyle={{ color: '#e5e7eb' }}
+              formatter={(value: number) => formatMoney(value)}
+            />
             <ReferenceLine y={0} stroke="#000" />
             <Bar dataKey="value">
               {accumulatedProfitLossData.map(
@@ -92,15 +101,6 @@ const ProfitLossOverviewChart = () => {
                 )
               )}
             </Bar>
-            <Tooltip
-              contentStyle={{
-                backgroundColor: 'rgba(31, 41, 55, 0.8)',
-                borderColor: '#4b5563',
-                fontSize: '12px'
-              }}
-              itemStyle={{ color: '#e5e7eb' }}
-              formatter={(value: number) => formatMoney(value)}
-            />
           </BarChart>
         </ResponsiveContainer>
       </div>
