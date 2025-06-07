@@ -12,14 +12,14 @@ const bankStatCards = [
     value: 'R$ 23,00'
   },
   {
-    name: 'Lucro Médio por Aposta',
+    name: 'Evolução da Banca',
     icon: '',
-    value: 'R$ 0,23'
+    value: '23 %'
   },
   {
-    name: 'ROI em porcentagem',
+    name: 'Saldo Inicial',
     icon: '',
-    value: '1,23 %'
+    value: 'R$ 100'
   },
   {
     name: 'Saldo final',
@@ -35,19 +35,19 @@ const betStatCards = [
     value: 30
   },
   {
-    name: 'Saldo Inicial',
+    name: 'Lucro Médio por Aposta',
     icon: '',
-    value: 'R$ 100'
+    value: 'R$ 0,23'
   },
   {
-    name: 'Saldo Final',
+    name: 'ROI',
     icon: '',
-    value: 'R$ 123,00'
+    value: '1,23 %'
   },
   {
-    name: 'Evolução da Banca',
+    name: 'Dias Trabalhados',
     icon: '',
-    value: '23 %'
+    value: 8
   }
 ]
 
