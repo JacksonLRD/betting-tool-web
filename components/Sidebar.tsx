@@ -3,8 +3,9 @@
 import React, { useState } from 'react'
 import {
   ArrowLeftRight,
+  BookCheck,
   Calculator,
-  ChartPie,
+  ChartColumnBig,
   CircleDollarSign,
   Download,
   House,
@@ -24,24 +25,30 @@ const ICONS = {
   CircleDollarSign,
   ArrowLeftRight,
   NotebookText,
-  ChartPie,
-  Download
+  Download,
+  BookCheck,
+  ChartColumnBig
 }
 
 type Item = {
-  icon: string
   name: string
+  icon: string
   href: string
 }
 
 const sidebarItems: Item[] = [
   { name: 'Dashboard', icon: 'House', href: '/' },
   { name: 'Apostas', icon: 'CircleDollarSign', href: '/apostas' },
+  {
+    name: 'Métodos e Estratégias',
+    icon: 'BookCheck',
+    href: '/estrategias'
+  },
   { name: 'Movimentações', icon: 'ArrowLeftRight', href: '/movimentacoes' },
   { name: 'Diário', icon: 'NotebookText', href: '/diario' },
-  { name: 'Relatórios', icon: 'ChartPie', href: '/relatorios' },
+  { name: 'Relatórios', icon: 'ChartColumnBig', href: '/relatorios' },
   { name: 'Configurações', icon: 'Settings', href: 'configuracoes' },
-  { name: 'Calculadora de Apostas', icon: 'Calculator', href: 'calculadora' },
+  { name: 'Calculadora Ladder', icon: 'Calculator', href: 'calculadora' },
   { name: 'Exportar Dados', icon: 'Download', href: 'exportar-dados' },
   { name: 'Ajuda', icon: 'Info', href: 'ajuda' }
 ]
