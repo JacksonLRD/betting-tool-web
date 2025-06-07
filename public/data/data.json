@@ -30,5 +30,9 @@
     { "date":  "28 de Janeiro 2025", "value":  23 },
     { "date":  "29 de Janeiro 2025", "value":  40 },
     { "date":  "30 de Janeiro 2025", "value":  37 }
+  ],
+  "accumulatedProfitLoss": [
+    { "description": "Ganhos", "value": 170 },
+    { "description": "Perdas", "value": 140 }
   ]
 }

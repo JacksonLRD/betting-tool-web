@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 type StatCardProps = {
   name: string
-  value: string
+  value: string | number
 }
 
 const StatCard = ({ name, value }: StatCardProps) => {
