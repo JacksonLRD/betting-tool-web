@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import {
+  Area,
+  AreaChart,
   CartesianGrid,
   Line,
   LineChart,
@@ -33,7 +35,7 @@ const BankEvolutionOverviewChart = () => {
       </h2>
       <div className="h-64 md:h-100">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={bankEvolutionData}>
+          <AreaChart data={bankEvolutionData}>
             <CartesianGrid strokeDasharray="3 3" stroke="#4b5563" />
             <XAxis
               dataKey="date"
@@ -56,15 +58,16 @@ const BankEvolutionOverviewChart = () => {
               itemStyle={{ color: '#e5e7eb' }}
               formatter={(value: number) => formatMoney(value)}
             />
-            <Line
+            <Area
               type="monotone"
               dataKey="value"
-              stroke="#9c27b0"
+              stroke="#d6ed0e"
+              fill="#d6ed6e"
               strokeWidth={3}
               dot={{ strokeWidth: 2, r: 4 }}
               activeDot={{ r: 6, strokeWidth: 2 }}
             />
-          </LineChart>
+          </AreaChart>
         </ResponsiveContainer>
       </div>
     </div>
