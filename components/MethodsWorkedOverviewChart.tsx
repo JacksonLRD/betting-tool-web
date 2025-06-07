@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts'
 
-const COLORS = ['#FF6B6B', '#4D96FF', '#FFD166', '#06D6A0', '#A29BFE']
+const COLORS = ['#FF6D01', '#4D96FF', '#FFD166', '#5B3F86', '#F4C7C3']
 
 type Method = {
   description: string
