@@ -68,7 +68,7 @@ const BankEvolutionOverviewChart = () => {
               stroke="#d6ed0e"
               fill="#d6ed6e"
               strokeWidth={3}
-              dot={{ strokeWidth: 2, r: 4 }}
+              dot={{ fill: '#000000', strokeWidth: 2, r: 4 }}
               activeDot={{ r: 6, strokeWidth: 2 }}
             />
           </AreaChart>

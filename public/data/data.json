@@ -1,15 +1,4 @@
 {
-  "sidebarItems": [
-    { "name": "Dashboard", "icon": "House", "href": "/" },
-    { "name": "Apostas", "icon": "CircleDollarSign", "href": "/apostas" },
-    { "name": "Movimentações", "icon": "ArrowLeftRight", "href": "/movimentacoes" },
-    { "name": "Diário", "icon": "NotebookText", "href": "/diario" },
-    { "name": "Relatórios", "icon": "ChartPie", "href": "/relatorios" },
-    { "name": "Configurações", "icon": "Settings", "href": "configuracoes" },
-    { "name": "Calculadora de Apostas", "icon": "Calculator", "href": "calculadora" },
-    { "name": "Exportar Dados", "icon": "Download", "href": "exportar-dados" },
-    { "name": "Ajuda", "icon": "Info", "href": "ajuda" }
-  ],
   "bankEvolution": [
     { "date":  "1 de Janeiro 2025", "value":  1 },
     { "date":  "2 de Janeiro 2025", "value":  2 },
@@ -23,6 +12,23 @@
     { "date":  "10 de Janeiro 2025", "value":  19 },
     { "date":  "11 de Janeiro 2025", "value":  18 },
     { "date":  "12 de Janeiro 2025", "value":  21 },
-    { "date":  "13 de Janeiro 2025", "value":  23 }
+    { "date":  "13 de Janeiro 2025", "value":  23 },
+    { "date":  "14 de Janeiro 2025", "value":  23 },
+    { "date":  "15 de Janeiro 2025", "value":  23 },
+    { "date":  "16 de Janeiro 2025", "value":  23 },
+    { "date":  "17 de Janeiro 2025", "value":  29 },
+    { "date":  "18 de Janeiro 2025", "value":  23 },
+    { "date":  "19 de Janeiro 2025", "value":  27 },
+    { "date":  "20 de Janeiro 2025", "value":  23 },
+    { "date":  "21 de Janeiro 2025", "value":  -8 },
+    { "date":  "22 de Janeiro 2025", "value":  4 },
+    { "date":  "23 de Janeiro 2025", "value":  9 },
+    { "date":  "24 de Janeiro 2025", "value":  18 },
+    { "date":  "25 de Janeiro 2025", "value":  23 },
+    { "date":  "26 de Janeiro 2025", "value":  23 },
+    { "date":  "27 de Janeiro 2025", "value":  29 },
+    { "date":  "28 de Janeiro 2025", "value":  23 },
+    { "date":  "29 de Janeiro 2025", "value":  40 },
+    { "date":  "30 de Janeiro 2025", "value":  37 }
   ]
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import {
   ArrowLeftRight,
   Calculator,
@@ -34,16 +34,22 @@ type Item = {
   href: string
 }
 
+const sidebarItems: Item[] = [
+  { name: 'Dashboard', icon: 'House', href: '/' },
+  { name: 'Apostas', icon: 'CircleDollarSign', href: '/apostas' },
+  { name: 'Movimentações', icon: 'ArrowLeftRight', href: '/movimentacoes' },
+  { name: 'Diário', icon: 'NotebookText', href: '/diario' },
+  { name: 'Relatórios', icon: 'ChartPie', href: '/relatorios' },
+  { name: 'Configurações', icon: 'Settings', href: 'configuracoes' },
+  { name: 'Calculadora de Apostas', icon: 'Calculator', href: 'calculadora' },
+  { name: 'Exportar Dados', icon: 'Download', href: 'exportar-dados' },
+  { name: 'Ajuda', icon: 'Info', href: 'ajuda' }
+]
+
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
-  const [sidebarItems, setSidebarItems] = useState([])
-  const pathname = usePathname()
 
-  useEffect(() => {
-    fetch('data/data.json')
-      .then((res) => res.json())
-      .then((data) => setSidebarItems(data.sidebarItems))
-  }, [])
+  const pathname = usePathname()
 
   return (
     <div
