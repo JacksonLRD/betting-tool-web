@@ -19,8 +19,21 @@ type ProfitLoss = {
   value: number
 }
 
+type ProfitLossFormated = {
+  name: string
+  value: number
+}
+
 const ProfitLossOverviewChart = () => {
-  const [accumulatedProfitLossData, setAccumulatedProfitLossData] = useState([])
+  const [accumulatedProfitLossData, setAccumulatedProfitLossData] = useState<
+    ProfitLossFormated[]
+  >([])
+  const formatProfitLossData = (data: ProfitLoss[]): ProfitLossFormated[] => {
+    return data.map((item) => ({
+      ...item,
+      name: item.description
+    }))
+  }
   const formatMoney = (amount: number) =>
     amount.toLocaleString('pt-BR', {
       style: 'currency',
@@ -31,7 +44,11 @@ const ProfitLossOverviewChart = () => {
   useEffect(() => {
     fetch('data/data.json')
       .then((res) => res.json())
-      .then((data) => setAccumulatedProfitLossData(data.accumulatedProfitLoss))
+      .then((data) =>
+        setAccumulatedProfitLossData(
+          formatProfitLossData(data.accumulatedProfitLoss)
+        )
+      )
   }, [])
 
   return (
@@ -53,7 +70,7 @@ const ProfitLossOverviewChart = () => {
               stroke="#4b5563"
             />
             <XAxis
-              dataKey="description"
+              dataKey="name"
               stroke="#9ca3af"
               tick={{ fontSize: 12 }}
               interval="preserveStartEnd"
@@ -64,6 +81,17 @@ const ProfitLossOverviewChart = () => {
               tick={{ fontSize: 12 }}
               width={60}
             />
+            <ReferenceLine y={0} stroke="#000" />
+            <Bar dataKey="value">
+              {accumulatedProfitLossData.map(
+                (entry: ProfitLossFormated, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={entry.name === 'Ganhos' ? '#06D6A0' : '#FF6B6B'}
+                  />
+                )
+              )}
+            </Bar>
             <Tooltip
               contentStyle={{
                 backgroundColor: 'rgba(31, 41, 55, 0.8)',
@@ -73,15 +101,6 @@ const ProfitLossOverviewChart = () => {
               itemStyle={{ color: '#e5e7eb' }}
               formatter={(value: number) => formatMoney(value)}
             />
-            <ReferenceLine y={0} stroke="#000" />
-            <Bar dataKey="value">
-              {accumulatedProfitLossData.map((entry: ProfitLoss) => (
-                <Cell
-                  key={`cell-index`}
-                  fill={entry.description === 'Ganhos' ? '#00c49f' : '#ff4d4f'}
-                />
-              ))}
-            </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>

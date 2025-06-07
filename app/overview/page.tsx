@@ -4,6 +4,7 @@ import StatCard from '@/components/StatCard'
 import { motion } from 'framer-motion'
 import BankEvolutionOverviewChart from '@/components/BankEvolutionOverviewChart'
 import ProfitLossOverviewChart from '@/components/ProfitLossOverviewChart'
+import MethodsWorkedOverviewChart from '@/components/MethodsWorkedOverviewChart'
 
 const bankStatCards = [
   {
@@ -80,6 +81,7 @@ const OverviewPage = () => {
         </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-7">
           <ProfitLossOverviewChart />
+          <MethodsWorkedOverviewChart />
         </div>
       </main>
     </div>

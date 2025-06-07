@@ -34,5 +34,12 @@
   "accumulatedProfitLoss": [
     { "description": "Ganhos", "value": 170 },
     { "description": "Perdas", "value": 140 }
+  ],
+  "methods": [
+    { "description":  "Lay a Zebra HT 1.0", "value":  18},
+    { "description":  "Vovo 1.0", "value":  10},
+    { "description":  "Lay ao Favorito HT 1.0", "value":  4},
+    { "description":  "Sniperback[Must Win]", "value":  7},
+    { "description":  "Outros", "value":  2}
   ]
 }
