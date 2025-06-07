@@ -11,6 +11,7 @@ import {
   House,
   Info,
   Menu,
+  NotebookPen,
   NotebookText,
   Settings
 } from 'lucide-react'
@@ -27,7 +28,8 @@ const ICONS = {
   NotebookText,
   Download,
   BookCheck,
-  ChartColumnBig
+  ChartColumnBig,
+  NotebookPen
 }
 
 type Item = {
@@ -47,6 +49,7 @@ const sidebarItems: Item[] = [
   { name: 'Movimentações', icon: 'ArrowLeftRight', href: '/movimentacoes' },
   { name: 'Diário', icon: 'NotebookText', href: '/diario' },
   { name: 'Relatórios', icon: 'ChartColumnBig', href: '/relatorios' },
+  { name: 'Projetos e Estudos', icon: 'NotebookPen', href: '/projetos' },
   { name: 'Configurações', icon: 'Settings', href: 'configuracoes' },
   { name: 'Calculadora Ladder', icon: 'Calculator', href: 'calculadora' },
   { name: 'Exportar Dados', icon: 'Download', href: 'exportar-dados' },
@@ -71,8 +74,6 @@ const Sidebar = () => {
         </button>
         <nav className="mt-8 flex-grow">
           {sidebarItems.map((item: Item) => {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
             const IconComponent = ICONS[item.icon]
 
             return (
