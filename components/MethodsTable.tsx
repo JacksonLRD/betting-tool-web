@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion'
 import data from '../public/data/data.json'
-import { useMemo, useState } from 'react'
-import { Eye, Search, Trash2 } from 'lucide-react'
+import React, { useMemo, useState } from 'react'
+import { Eye, Plus, Search, Trash2 } from 'lucide-react'
 
 const METHOD_STATUS = {
   VALIDADO: 'Validado',
@@ -61,7 +61,7 @@ const MethodsTable = () => {
 
   const handleDelete = (id) => {
     const confirmDelete = window.confirm(
-      'Tem certeza que deseja deletar esse Método?'
+      'Tem certeza que deseja excluir esse Método?'
     )
     if (confirmDelete) {
       setMethods((prevMethods) =>
@@ -77,19 +77,29 @@ const MethodsTable = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2, duration: 0.5 }}
     >
-      <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap=4md:gap-0">
-        <h2 className="text-lg md:text-xl font-semibold text-gray-100 text-center md:text-left">
-          Métodos
-        </h2>
-        <div className="relative w-full md:w-auto">
-          <input
-            type="text"
-            placeholder="Pesquisar..."
-            onChange={(e) => setSearchTerm(e.target.value)}
-            value={searchTerm}
-            className="bg-[#2f2f2f] text-white placeholder-gray-400 rounded-lg pl-10 pr-4 py-2 w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-gray-500 transition duration-200 text-sm"
-          />
-          <Search className="absolute left-3 top-2.5 text-gray-400" size={18} />
+      <h2 className="text-lg md:text-xl font-semibold text-gray-100 text-center md:text-left">
+        Métodos
+      </h2>
+
+      <div className="flex flex-col md:flex-row justify-end items-center mb-6 gap-4 md:gap-0">
+        <div className="flex w-full md:justify-end md:w-auto items-center gap-2">
+          <div className="relative w-full md:w-64">
+            <input
+              type="text"
+              placeholder="Pesquisar..."
+              onChange={(e) => setSearchTerm(e.target.value)}
+              value={searchTerm}
+              className="bg-[#2f2f2f] text-white placeholder-gray-400 rounded-lg pl-10 pr-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-gray-500 transition duration-200 text-sm"
+            />
+            <Search
+              className="absolute left-3 top-2.5 text-gray-400"
+              size={18}
+            />
+          </div>
+          <div className="flex items-center p-2 text-sm font-medium rounded-lg bg-green-600 hover:bg-green-400 transition-colors cursor-pointer">
+            <Plus size={18} style={{ minWidth: '18px' }} />
+            <span className="ml-4 whitespace-nowrap">Criar Método</span>
+          </div>
         </div>
       </div>
 
