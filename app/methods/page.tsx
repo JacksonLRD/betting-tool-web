@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import StatCard from '@/components/StatCard'
+import MethodsTable from '@/components/MethodsTable'
 
 const methodStatCards = [
   {
@@ -40,6 +41,8 @@ const MethodsPage = () => {
             return <StatCard key={name} name={name} icon={icon} value={value} />
           })}
         </motion.div>
+
+        <MethodsTable />
       </main>
     </div>
   )

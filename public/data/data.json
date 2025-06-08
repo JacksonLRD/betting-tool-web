@@ -41,42 +41,42 @@
       "name":  "Lay a Zebra HT 1.0",
       "stakeBase": 20,
       "settledBets":  18,
-      "AccumulatedResult": 300,
-      "Status": "VALIDADO",
-      "Description": ""
+      "accumulatedResult": 300,
+      "status": "VALIDADO",
+      "description": ""
     },
     {
       "id": 2,
       "name":  "Vovo 1.0",
       "stakeBase": 20,
       "settledBets":  10,
-      "AccumulatedResult": 30,
-      "Status": "EM_VALIDACAO",
-      "Description": ""
+      "accumulatedResult": 30,
+      "status": "EM_VALIDACAO",
+      "description": ""
     },{
       "id": 3,
       "name":  "Lay ao Favorito HT 1.0",
       "stakeBase": 2,
       "settledBets":  4,
-      "AccumulatedResult": 40,
-      "Status": "EM_VALIDACAO",
-      "Description": ""
+      "accumulatedResult": 40,
+      "status": "EM_VALIDACAO",
+      "description": ""
     },{
       "id": 4,
       "name":  "Sniperback[Must Win]",
       "stakeBase": 3,
       "settledBets":  4,
-      "AccumulatedResult": 6,
-      "Status": "ABANDONADO",
-      "Description": ""
+      "accumulatedResult": 6,
+      "status": "ABANDONADO",
+      "description": ""
     },{
       "id": 5,
       "name":  "Leitura",
       "stakeBase": 2,
       "settledBets":  1,
-      "AccumulatedResult": 10,
-      "Status": "EM_VALIDACAO",
-      "Description": ""
+      "accumulatedResult": 10,
+      "status": "EM_VALIDACAO",
+      "description": ""
     }
   ]
 }
