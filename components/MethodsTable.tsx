@@ -130,11 +130,11 @@ const MethodsTable = () => {
                       </div>
                     </div>
                     <div className="flex space-x-1 -mt-1 -mr-1">
-                      <button className="text-green-500 hover:text-green-300 cursor-pointer">
-                        <Eye size={16} />
+                      <button className="text-gray-300 hover:text-white mr-1 cursor-pointer">
+                        <Eye size={18} />
                       </button>
                       <button
-                        className="text-red-500 hover:text-red-300 cursor-pointer"
+                        className="text-red-400 hover:text-red-300 mr-1 cursor-pointer"
                         onClick={() => handleDelete(method.id)}
                       >
                         <Trash2 size={16} />
@@ -155,11 +155,11 @@ const MethodsTable = () => {
 
                 <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-300">
                   <div className="flex space-x-1">
-                    <button className="text-green-500 hover:text-green-300 mr-1 cursor-pointer">
+                    <button className="text-gray-300 hover:text-white mr-1 cursor-pointer">
                       <Eye size={18} />
                     </button>
                     <button
-                      className="text-red-500 hover:text-red-300 mr-1 cursor-pointer"
+                      className="text-red-400 hover:text-red-300 mr-1 cursor-pointer"
                       onClick={() => handleDelete(method.id)}
                     >
                       <Trash2 size={18} />
