@@ -1,0 +1,45 @@
+{
+  "bankEvolution": [
+    { "date":  "1 de Janeiro 2025", "value":  1 },
+    { "date":  "2 de Janeiro 2025", "value":  2 },
+    { "date":  "3 de Janeiro 2025", "value":  3 },
+    { "date":  "4 de Janeiro 2025", "value":  11 },
+    { "date":  "5 de Janeiro 2025", "value":  11 },
+    { "date":  "6 de Janeiro 2025", "value":  13 },
+    { "date":  "7 de Janeiro 2025", "value":  10 },
+    { "date":  "8 de Janeiro 2025", "value":  8 },
+    { "date":  "9 de Janeiro 2025", "value":  15 },
+    { "date":  "10 de Janeiro 2025", "value":  19 },
+    { "date":  "11 de Janeiro 2025", "value":  18 },
+    { "date":  "12 de Janeiro 2025", "value":  21 },
+    { "date":  "13 de Janeiro 2025", "value":  23 },
+    { "date":  "14 de Janeiro 2025", "value":  23 },
+    { "date":  "15 de Janeiro 2025", "value":  23 },
+    { "date":  "16 de Janeiro 2025", "value":  23 },
+    { "date":  "17 de Janeiro 2025", "value":  29 },
+    { "date":  "18 de Janeiro 2025", "value":  23 },
+    { "date":  "19 de Janeiro 2025", "value":  27 },
+    { "date":  "20 de Janeiro 2025", "value":  23 },
+    { "date":  "21 de Janeiro 2025", "value":  -8 },
+    { "date":  "22 de Janeiro 2025", "value":  4 },
+    { "date":  "23 de Janeiro 2025", "value":  9 },
+    { "date":  "24 de Janeiro 2025", "value":  18 },
+    { "date":  "25 de Janeiro 2025", "value":  23 },
+    { "date":  "26 de Janeiro 2025", "value":  23 },
+    { "date":  "27 de Janeiro 2025", "value":  29 },
+    { "date":  "28 de Janeiro 2025", "value":  23 },
+    { "date":  "29 de Janeiro 2025", "value":  40 },
+    { "date":  "30 de Janeiro 2025", "value":  37 }
+  ],
+  "accumulatedProfitLoss": [
+    { "description": "Ganhos", "value": 170 },
+    { "description": "Perdas", "value": 140 }
+  ],
+  "methods": [
+    { "description":  "Lay a Zebra HT 1.0", "value":  18},
+    { "description":  "Vovo 1.0", "value":  10},
+    { "description":  "Lay ao Favorito HT 1.0", "value":  4},
+    { "description":  "Sniperback[Must Win]", "value":  7},
+    { "description":  "Outros", "value":  2}
+  ]
+}

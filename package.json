@@ -1,36 +1,31 @@
 {
-  "name": "auth-nextjs-themed",
+  "name": "betting-tool-web",
   "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
-    "@mui/material": "^6",
-    "@mui/x-charts": "^7",
-    "@mui/x-data-grid": "^7",
-    "@mui/x-date-pickers": "^7",
-    "next": "^15",
+    "framer-motion": "^12.15.0",
+    "lucide-react": "^0.511.0",
+    "next": "15.3.3",
+    "prettier": "^3.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "@emotion/cache": "^11",
-    "@mui/icons-material": "^6",
-    "@mui/material-nextjs": "^6",
-    "@mui/x-tree-view": "^7",
-    "dayjs": "^1",
-    "clsx": "^2",
-    "@toolpad/core": "^0.12.0",
-    "next-auth": "^5.0.0-beta.25"
+    "recharts": "^2.15.3"
   },
   "devDependencies": {
-    "@types/node": "^20.17.16",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "eslint": "^8",
-    "eslint-config-next": "^15",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.3",
+    "tailwindcss": "^4",
     "typescript": "^5"
   }
 }
