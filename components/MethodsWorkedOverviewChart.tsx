@@ -7,8 +7,8 @@ import { motion } from 'framer-motion'
 const COLORS = ['#FF6D01', '#4D96FF', '#FFD166', '#5B3F86', '#F4C7C3']
 
 type Method = {
-  description: string
-  value: number
+  name: string
+  settledBets: number
 }
 
 type MethodFormated = {
@@ -23,7 +23,7 @@ const MethodsWorkedOverviewChart = () => {
   const formatMethodsData = (data: Method[]): MethodFormated[] => {
     return data.map((item) => ({
       ...item,
-      name: item.description
+      value: item.settledBets
     }))
   }
 
@@ -65,8 +65,8 @@ const MethodsWorkedOverviewChart = () => {
               cy="50%"
               outerRadius={outerRadius}
               labelLine={false}
-              label={({ description, percent }) =>
-                `${description} ${(percent * 100).toFixed(0)}%`
+              label={({ name, percent }) =>
+                `${name} ${(percent * 100).toFixed(0)}%`
               }
             >
               {methodsData.map((entry, index) => (

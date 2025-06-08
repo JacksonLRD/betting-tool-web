@@ -36,10 +36,47 @@
     { "description": "Perdas", "value": 140 }
   ],
   "methods": [
-    { "description":  "Lay a Zebra HT 1.0", "value":  18},
-    { "description":  "Vovo 1.0", "value":  10},
-    { "description":  "Lay ao Favorito HT 1.0", "value":  4},
-    { "description":  "Sniperback[Must Win]", "value":  7},
-    { "description":  "Outros", "value":  2}
+    {
+      "id": 1,
+      "name":  "Lay a Zebra HT 1.0",
+      "stakeBase": 20,
+      "settledBets":  18,
+      "AccumulatedResult": 300,
+      "Status": "VALIDADO",
+      "Description": ""
+    },
+    {
+      "id": 2,
+      "name":  "Vovo 1.0",
+      "stakeBase": 20,
+      "settledBets":  10,
+      "AccumulatedResult": 30,
+      "Status": "EM_VALIDACAO",
+      "Description": ""
+    },{
+      "id": 3,
+      "name":  "Lay ao Favorito HT 1.0",
+      "stakeBase": 2,
+      "settledBets":  4,
+      "AccumulatedResult": 40,
+      "Status": "EM_VALIDACAO",
+      "Description": ""
+    },{
+      "id": 4,
+      "name":  "Sniperback[Must Win]",
+      "stakeBase": 3,
+      "settledBets":  4,
+      "AccumulatedResult": 6,
+      "Status": "ABANDONADO",
+      "Description": ""
+    },{
+      "id": 5,
+      "name":  "Leitura",
+      "stakeBase": 2,
+      "settledBets":  1,
+      "AccumulatedResult": 10,
+      "Status": "EM_VALIDACAO",
+      "Description": ""
+    }
   ]
 }
