@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion'
 import data from '../public/data/data.json'
-import { useState } from 'react'
-import { Edit, Eye, Search, Trash2 } from 'lucide-react'
+import { useMemo, useState } from 'react'
+import { Eye, Search, Trash2 } from 'lucide-react'
 
 const METHOD_STATUS = {
   VALIDADO: 'Validado',
@@ -30,28 +30,45 @@ const METHOD_TABLE_LINE = [
   'status'
 ]
 
+const isMoneyField = (field: string): boolean => {
+  return field === 'accumulatedResult' || field === 'stakeBase'
+}
+
+const formatMoney = (amount: number) =>
+  amount.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2
+  })
+
+const formatMethod = (data: any[]) => {
+  return data.map((item) => ({
+    ...item,
+    status: METHOD_STATUS[item.status]
+  }))
+}
 const MethodsTable = () => {
-  const isMoneyField = (field: string): boolean => {
-    return field === 'accumulatedResult' || field === 'stakeBase'
-  }
-
-  const formatMoney = (amount: number) =>
-    amount.toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-      minimumFractionDigits: 2
-    })
-
-  const formatMethod = (data: any[]) => {
-    return data.map((item) => ({
-      ...item,
-      status: METHOD_STATUS[item.status]
-    }))
-  }
-
   const formatedMethods = formatMethod(data.methods)
 
   const [methods, setMethods] = useState(formatedMethods)
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const filteredMethods = useMemo(() => {
+    return methods.filter((method) =>
+      method.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  }, [methods, searchTerm])
+
+  const handleDelete = (id) => {
+    const confirmDelete = window.confirm(
+      'Tem certeza que deseja deletar esse Método?'
+    )
+    if (confirmDelete) {
+      setMethods((prevMethods) =>
+        prevMethods.filter((method) => method.id !== id)
+      )
+    }
+  }
 
   return (
     <motion.div
@@ -68,6 +85,8 @@ const MethodsTable = () => {
           <input
             type="text"
             placeholder="Pesquisar..."
+            onChange={(e) => setSearchTerm(e.target.value)}
+            value={searchTerm}
             className="bg-[#2f2f2f] text-white placeholder-gray-400 rounded-lg pl-10 pr-4 py-2 w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-gray-500 transition duration-200 text-sm"
           />
           <Search className="absolute left-3 top-2.5 text-gray-400" size={18} />
@@ -90,7 +109,7 @@ const MethodsTable = () => {
           </thead>
 
           <tbody className="divide-y divide-gray-700">
-            {methods.map((method) => (
+            {filteredMethods.map((method) => (
               <motion.tr
                 key={method.id}
                 initial={{ opacity: 0, y: 10 }}
@@ -114,10 +133,10 @@ const MethodsTable = () => {
                       <button className="text-green-500 hover:text-green-300 cursor-pointer">
                         <Eye size={16} />
                       </button>
-                      <button className="text-yellow-500 hover:text-yellow-300 cursor-pointer">
-                        <Edit size={16} />
-                      </button>
-                      <button className="text-red-500 hover:text-red-300 cursor-pointer">
+                      <button
+                        className="text-red-500 hover:text-red-300 cursor-pointer"
+                        onClick={() => handleDelete(method.id)}
+                      >
                         <Trash2 size={16} />
                       </button>
                     </div>
@@ -135,14 +154,14 @@ const MethodsTable = () => {
                 ))}
 
                 <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                  <div className="flex space-x-1 -ml-2">
+                  <div className="flex space-x-1">
                     <button className="text-green-500 hover:text-green-300 mr-1 cursor-pointer">
                       <Eye size={18} />
                     </button>
-                    <button className="text-yellow-500 hover:text-yellow-300 mr-1 cursor-pointer">
-                      <Edit size={18} />
-                    </button>
-                    <button className="text-red-500 hover:text-red-300 mr-1 cursor-pointer">
+                    <button
+                      className="text-red-500 hover:text-red-300 mr-1 cursor-pointer"
+                      onClick={() => handleDelete(method.id)}
+                    >
                       <Trash2 size={18} />
                     </button>
                   </div>
