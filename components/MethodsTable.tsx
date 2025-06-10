@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import data from '../public/data/data.json'
 import React, { useMemo, useState } from 'react'
 import { Eye, Plus, Search, Trash2 } from 'lucide-react'
+import Link from 'next/link'
 
 const METHOD_STATUS = {
   VALIDADO: 'Validado',
@@ -96,10 +97,12 @@ const MethodsTable = () => {
               size={18}
             />
           </div>
-          <div className="flex items-center p-2 text-sm font-medium rounded-lg bg-green-600 hover:bg-green-400 transition-colors cursor-pointer">
-            <Plus size={18} style={{ minWidth: '18px' }} />
-            <span className="ml-4 whitespace-nowrap">Criar Método</span>
-          </div>
+          <Link key={'create-method'} href={'/methods/create'}>
+            <button className="flex items-center p-2 text-sm font-medium rounded-lg bg-green-600 hover:bg-green-400 transition-colors cursor-pointer">
+              <Plus size={18} style={{ minWidth: '18px' }} />
+              <span className="ml-4 whitespace-nowrap">Criar Método</span>
+            </button>
+          </Link>
         </div>
       </div>
 
