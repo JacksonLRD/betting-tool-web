@@ -62,8 +62,8 @@ const OverviewPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          {bankStatCards.map(({ name, value }) => {
-            return <StatCard key={name} name={name} value={value} />
+          {bankStatCards.map(({ name, icon, value }) => {
+            return <StatCard key={name} name={name} icon={icon} value={value} />
           })}
         </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
@@ -75,8 +75,8 @@ const OverviewPage = () => {
           animate={{ opacity: 1, y: 30 }}
           transition={{ duration: 1 }}
         >
-          {betStatCards.map(({ name, value }) => {
-            return <StatCard key={name} name={name} value={value} />
+          {betStatCards.map(({ name, icon, value }) => {
+            return <StatCard key={name} name={name} icon={icon} value={value} />
           })}
         </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-7">

@@ -44,7 +44,7 @@ const sidebarItems: Item[] = [
   {
     name: 'Métodos e Estratégias',
     icon: 'BookCheck',
-    href: '/estrategias'
+    href: '/methods'
   },
   { name: 'Movimentações', icon: 'ArrowLeftRight', href: '/movimentacoes' },
   { name: 'Diário', icon: 'NotebookText', href: '/diario' },
@@ -57,7 +57,7 @@ const sidebarItems: Item[] = [
 ]
 
 const Sidebar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   const pathname = usePathname()
 
