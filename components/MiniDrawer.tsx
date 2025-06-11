@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles'
+import { styled, Theme, CSSObject } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import MuiDrawer from '@mui/material/Drawer'
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar'
@@ -17,12 +17,9 @@ import ListItem from '@mui/material/ListItem'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
-import InboxIcon from '@mui/icons-material/MoveToInbox'
-import MailIcon from '@mui/icons-material/Mail'
 import HomeIcon from '@mui/icons-material/Home'
 import PaidIcon from '@mui/icons-material/Paid'
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks'
-import SyncAltIcon from '@mui/icons-material/SyncAlt'
 import RepeatOnIcon from '@mui/icons-material/RepeatOn'
 import ClassIcon from '@mui/icons-material/Class'
 import LeaderboardIcon from '@mui/icons-material/Leaderboard'
@@ -31,41 +28,6 @@ import SettingsIcon from '@mui/icons-material/Settings'
 import CalculateIcon from '@mui/icons-material/Calculate'
 import BrowserUpdatedIcon from '@mui/icons-material/BrowserUpdated'
 import HelpIcon from '@mui/icons-material/Help'
-
-// const ICONS = {
-//   HomeIcon,
-//   PaidIcon,
-//   LibraryBooksIcon,
-//   SyncAltIcon,
-//   RepeatOnIcon,
-//   ClassIcon,
-//   SchoolIcon,
-//   LeaderboardIcon,
-//   SettingsIcon,
-//   CalculateIcon,
-//   BrowserUpdatedIcon,
-//   HelpIcon
-// }
-
-// const primaryDrawerItems = [
-//   { name: 'Início', icon: 'HomeIcon', href: '/' },
-//   { name: 'Apostas', icon: 'PaidIcon', href: '/' },
-//   {
-//     name: 'Métodos e Estratégias',
-//     icon: 'LibraryBooksIcon',
-//     href: '/'
-//   },
-//   { name: 'Movimentações', icon: 'RepeatOnIcon', href: '/' },
-//   { name: 'Diário', icon: 'ClassIcon', href: '/' },
-//   { name: 'Relatórios', icon: 'LeaderboardIcon', href: '/' },
-//   { name: 'Projetos e Estudos', icon: 'SchoolIcon', href: '/' }
-// ]
-// const secondaryDrawerItems = [
-//   { name: 'Configurações', icon: 'SettingsIcon', href: '/' },
-//   { name: 'Calculadora Ladder', icon: 'CalculateIcon', href: '/' },
-//   { name: 'Exportar Dados', icon: 'BrowserUpdatedIcon', href: '/' },
-//   { name: 'Ajuda', icon: 'HelpIcon', href: '/' }
-// ]
 
 const primaryDrawerItems = [
   { name: 'Início', icon: HomeIcon, href: '/' },
