@@ -28,6 +28,7 @@ import SettingsIcon from '@mui/icons-material/Settings'
 import CalculateIcon from '@mui/icons-material/Calculate'
 import BrowserUpdatedIcon from '@mui/icons-material/BrowserUpdated'
 import HelpIcon from '@mui/icons-material/Help'
+import Link from '@mui/material/Link'
 
 const primaryDrawerItems = [
   { name: 'Início', icon: HomeIcon, href: '/' },
@@ -35,7 +36,7 @@ const primaryDrawerItems = [
   {
     name: 'Métodos e Estratégias',
     icon: LibraryBooksIcon,
-    href: '/'
+    href: '/methods'
   },
   { name: 'Movimentações', icon: RepeatOnIcon, href: '/' },
   { name: 'Diário', icon: ClassIcon, href: '/' },
@@ -77,7 +78,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'flex-end',
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar
 }))
 
@@ -180,57 +180,64 @@ export default function MiniDrawer({ children }: any) {
             const IconComponent = item.icon
 
             return (
-              <ListItem
+              <Link
                 key={item.name}
-                disablePadding
-                sx={{ display: 'block' }}
+                href={item.href}
+                color="textPrimary"
+                underline="none"
               >
-                <ListItemButton
-                  sx={[
-                    {
-                      minHeight: 48,
-                      px: 2.5
-                    },
-                    open
-                      ? {
-                          justifyContent: 'initial'
-                        }
-                      : {
-                          justifyContent: 'center'
-                        }
-                  ]}
+                <ListItem
+                  key={item.name}
+                  disablePadding
+                  sx={{ display: 'block' }}
                 >
-                  <ListItemIcon
+                  <ListItemButton
                     sx={[
                       {
-                        minWidth: 0,
-                        justifyContent: 'center'
+                        minHeight: 48,
+                        px: 2.5
                       },
                       open
                         ? {
-                            mr: 3
+                            justifyContent: 'initial'
                           }
                         : {
-                            mr: 'auto'
+                            justifyContent: 'center'
                           }
                     ]}
                   >
-                    <IconComponent />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.name}
-                    sx={[
-                      open
-                        ? {
-                            opacity: 1
-                          }
-                        : {
-                            opacity: 0
-                          }
-                    ]}
-                  />
-                </ListItemButton>
-              </ListItem>
+                    <ListItemIcon
+                      sx={[
+                        {
+                          minWidth: 0,
+                          justifyContent: 'center'
+                        },
+                        open
+                          ? {
+                              mr: 3
+                            }
+                          : {
+                              mr: 'auto'
+                            }
+                      ]}
+                    >
+                      <IconComponent />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={item.name}
+                      sx={[
+                        open
+                          ? {
+                              opacity: 1
+                            }
+                          : {
+                              opacity: 0
+                            }
+                      ]}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              </Link>
             )
           })}
         </List>
@@ -275,7 +282,7 @@ export default function MiniDrawer({ children }: any) {
                           }
                     ]}
                   >
-                    <IconComponent />f
+                    <IconComponent />
                   </ListItemIcon>
                   <ListItemText
                     primary={item.name}
