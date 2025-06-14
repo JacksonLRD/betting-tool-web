@@ -140,10 +140,279 @@ const rows = [
     accumulatedResult: 10,
     status: 'EM_VALIDACAO',
     description: ''
+  },
+  {
+    id: 6,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 7,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 8,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 9,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 10,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 11,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 12,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 13,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 14,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 15,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 16,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 55,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 51,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 522,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 5111,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 56,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 59,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 523,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 5123,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 51111,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 522222,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 532323,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 125,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 5231111,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 2225,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 567,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 576,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 5777,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 5888,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 589,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
   }
 ]
 
-// TODO xs = tela pequena; md = tela grande
 export default function MethodsPage() {
   const [windowWidth, setWindowSize] = useState(0)
 

@@ -60,6 +60,11 @@ export default function DataTable({
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0
 
+  const visibleRows = React.useMemo(
+    () => [...rows].slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage),
+    [page, rowsPerPage]
+  )
+
   return (
     <Box sx={{ width: '100%' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
@@ -83,7 +88,7 @@ export default function DataTable({
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => {
+              {visibleRows.map((row) => {
                 return (
                   <TableRow hover tabIndex={-1} key={row.id}>
                     {lineCells.map((lineCell) => (
