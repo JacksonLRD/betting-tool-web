@@ -10,7 +10,6 @@ import SearchField from '@/components/SearchField'
 import AddIcon from '@mui/icons-material/Add'
 import { useEffect, useState } from 'react'
 import DataTable from '@/components/DataTable'
-import { GridColDef } from '@mui/x-data-grid'
 
 const CARDS = [
   {
@@ -31,34 +30,52 @@ const CARDS = [
   }
 ]
 
-const COLUMNS: GridColDef[] = [
-  { field: 'id', headerName: 'ID', flex: 1 },
-  { field: 'name', headerName: 'Nome', flex: 1 },
-  { field: 'stakeBase', headerName: 'Stake Base', type: 'number', flex: 1 },
+const headCells = [
   {
-    field: 'settledBets',
-    headerName: 'Apostas',
-    type: 'number',
-    sortable: false,
-    flex: 1
+    id: 'id',
+    align: 'left',
+    disablePadding: false,
+    label: 'ID',
+    sortable: false
   },
   {
-    field: 'accumulatedResult',
-    headerName: 'Resultado',
-    sortable: false,
-    type: 'number',
-    flex: 1
+    id: 'name',
+    align: 'left',
+    disablePadding: false,
+    label: 'Nome',
+    sortable: false
   },
   {
-    field: 'status',
-    headerName: 'Status',
-    sortable: false,
-    type: 'string',
-    flex: 1
+    id: 'stakeBase',
+    align: 'left',
+    disablePadding: false,
+    label: 'Stake Base',
+    sortable: false
+  },
+  {
+    id: 'settledBets',
+    align: 'left',
+    disablePadding: false,
+    label: 'Apostas',
+    sortable: false
+  },
+  {
+    id: 'accumulatedResult',
+    align: 'left',
+    disablePadding: false,
+    label: 'Resultado',
+    sortable: false
+  },
+  {
+    id: 'status',
+    align: 'left',
+    disablePadding: false,
+    label: 'Status',
+    sortable: true
   }
 ]
 
-const ROWS = [
+const rows = [
   {
     id: 1,
     name: 'Lay a Zebra HT 1.0',
@@ -106,8 +123,6 @@ const ROWS = [
   }
 ]
 
-const paginationModel = { page: 0, pageSize: 10 }
-
 // TODO xs = tela pequena; md = tela grande
 export default function MethodsPage() {
   const [windowWidth, setWindowSize] = useState(0)
@@ -117,10 +132,8 @@ export default function MethodsPage() {
       setWindowSize(window?.innerWidth)
     }
 
-    // Adiciona o listener para o evento de redimensionamento
     window.addEventListener('resize', handleResize)
 
-    // Remove o listener ao desmontar o componente
     return () => {
       window.removeEventListener('resize', handleResize)
     }
@@ -179,7 +192,7 @@ export default function MethodsPage() {
             }}
           >
             <Grid size={12}>
-              <DataTable />
+              <DataTable headCells={headCells} rows={rows} />
             </Grid>
           </Grid>
         </Grid>
