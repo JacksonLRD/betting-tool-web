@@ -75,6 +75,15 @@ const headCells = [
   }
 ]
 
+const lineCells = [
+  'id',
+  'name',
+  'stakeBase',
+  'settledBets',
+  'accumulatedResult',
+  'status'
+]
+
 const rows = [
   {
     id: 1,
@@ -192,7 +201,11 @@ export default function MethodsPage() {
             }}
           >
             <Grid size={12}>
-              <DataTable headCells={headCells} rows={rows} />
+              <DataTable
+                headCells={headCells}
+                lineCells={lineCells}
+                rows={rows}
+              />
             </Grid>
           </Grid>
         </Grid>

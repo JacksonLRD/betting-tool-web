@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import Box from '@mui/material/Box'
 import Table from '@mui/material/Table'
@@ -19,10 +21,15 @@ interface HeadCell {
 
 interface DataTableProps {
   headCells: HeadCell[]
+  lineCells: string[]
   rows: any[]
 }
 
-export default function DataTable({ headCells, rows }: DataTableProps) {
+export default function DataTable({
+  headCells,
+  lineCells,
+  rows
+}: DataTableProps) {
   const [page, setPage] = React.useState(0)
   const [rowsPerPage, setRowsPerPage] = React.useState(5)
 
@@ -64,24 +71,19 @@ export default function DataTable({ headCells, rows }: DataTableProps) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row, index) => {
-                const labelId = `enhanced-table-${index}`
-
+              {rows.map((row) => {
                 return (
                   <TableRow hover tabIndex={-1} key={row.id}>
-                    <TableCell
-                      component="th"
-                      id={labelId}
-                      scope="row"
-                      padding="normal"
-                    >
-                      {row.id}
-                    </TableCell>
-                    <TableCell align="left">{row.name}</TableCell>
-                    <TableCell align="left">{row.stakeBase}</TableCell>
-                    <TableCell align="left">{row.settledBets}</TableCell>
-                    <TableCell align="left">{row.accumulatedResult}</TableCell>
-                    <TableCell align="left">{row.status}</TableCell>
+                    {lineCells.map((lineCell) => (
+                      <TableCell
+                        component="th"
+                        key={lineCell}
+                        scope="row"
+                        padding="normal"
+                      >
+                        {row[lineCell]}
+                      </TableCell>
+                    ))}
                   </TableRow>
                 )
               })}
