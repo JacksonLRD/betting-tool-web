@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography'
 import { Button, Container } from '@mui/material'
 import SearchField from '@/components/SearchField'
 import AddIcon from '@mui/icons-material/Add'
+import { useEffect, useState } from 'react'
 
 const CARDS = [
   {
@@ -30,6 +31,22 @@ const CARDS = [
 
 // TODO xs = tela pequena; md = tela grande
 export default function MethodsPage() {
+  const [windowWidth, setWindowSize] = useState(0)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window?.innerWidth)
+    }
+
+    // Adiciona o listener para o evento de redimensionamento
+    window.addEventListener('resize', handleResize)
+
+    // Remove o listener ao desmontar o componente
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Container maxWidth={'lg'}>
@@ -39,7 +56,7 @@ export default function MethodsPage() {
           </Grid>
           {CARDS.map((item) => {
             return (
-              <Grid key={`grid-${item.title}`} size={{ md: 3, sm: 6, xs: 6 }}>
+              <Grid key={`grid-${item.title}`} size={{ md: 3, sm: 6, xs: 12 }}>
                 <BasicCard
                   key={`card-${item.title}`}
                   title={item.title}
@@ -69,11 +86,11 @@ export default function MethodsPage() {
                 startIcon={<AddIcon />}
                 color={'success'}
               >
-                Criar
+                {windowWidth >= 600 || windowWidth === 0 ? 'Criar' : ''}
               </Button>
             </Grid>
           </Grid>
-          <Grid size={12}>table</Grid>
+          <Grid size={12}>{`window size ${windowWidth}`}</Grid>
         </Grid>
       </Container>
     </Box>
