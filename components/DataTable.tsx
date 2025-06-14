@@ -19,9 +19,14 @@ interface HeadCell {
   sortable: boolean
 }
 
+interface LineCell {
+  label: string
+  type: 'money' | 'date' | 'others'
+}
+
 interface DataTableProps {
   headCells: HeadCell[]
-  lineCells: string[]
+  lineCells: LineCell[]
   rows: any[]
 }
 
@@ -43,6 +48,13 @@ export default function DataTable({
     setRowsPerPage(parseInt(event.target.value, 10))
     setPage(0)
   }
+
+  const formatMoney = (amount: number) =>
+    amount.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+      minimumFractionDigits: 2
+    })
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
@@ -77,11 +89,13 @@ export default function DataTable({
                     {lineCells.map((lineCell) => (
                       <TableCell
                         component="th"
-                        key={lineCell}
+                        key={lineCell.label}
                         scope="row"
                         padding="normal"
                       >
-                        {row[lineCell]}
+                        {lineCell.type === 'money'
+                          ? formatMoney(row[lineCell.label])
+                          : row[lineCell.label]}
                       </TableCell>
                     ))}
                   </TableRow>

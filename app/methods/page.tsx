@@ -11,7 +11,7 @@ import AddIcon from '@mui/icons-material/Add'
 import { useEffect, useState } from 'react'
 import DataTable from '@/components/DataTable'
 
-const CARDS = [
+const cards = [
   {
     title: 'Quantidade',
     value: 6
@@ -75,13 +75,18 @@ const headCells = [
   }
 ]
 
-const lineCells = [
-  'id',
-  'name',
-  'stakeBase',
-  'settledBets',
-  'accumulatedResult',
-  'status'
+interface LineCell {
+  label: string
+  type: 'money' | 'date' | 'others'
+}
+
+const lineCells: LineCell[] = [
+  { label: 'id', type: 'others' },
+  { label: 'name', type: 'others' },
+  { label: 'stakeBase', type: 'money' },
+  { label: 'settledBets', type: 'others' },
+  { label: 'accumulatedResult', type: 'money' },
+  { label: 'status', type: 'others' }
 ]
 
 const rows = [
@@ -155,7 +160,7 @@ export default function MethodsPage() {
           <Grid size={12}>
             <Typography variant="h4">Métodos</Typography>
           </Grid>
-          {CARDS.map((item) => {
+          {cards.map((item) => {
             return (
               <Grid key={`grid-${item.title}`} size={{ md: 3, sm: 6, xs: 12 }}>
                 <BasicCard
