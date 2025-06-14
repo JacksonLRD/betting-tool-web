@@ -5,6 +5,9 @@ import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import BasicCard from '@/components/BasicCard'
 import Typography from '@mui/material/Typography'
+import { Button, Container } from '@mui/material'
+import SearchField from '@/components/SearchField'
+import AddIcon from '@mui/icons-material/Add'
 
 const CARDS = [
   {
@@ -29,34 +32,50 @@ const CARDS = [
 export default function MethodsPage() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Grid size={12}>
-          <Typography variant="h4">Métodos</Typography>
-        </Grid>
-        {CARDS.map((item) => {
-          return (
-            <Grid key={`grid-${item.title}`} size={{ xs: 6, md: 3 }}>
-              <BasicCard
-                key={`card-${item.title}`}
-                title={item.title}
-                value={item.value}
-              />
+      <Container maxWidth={'lg'}>
+        <Grid container spacing={2}>
+          <Grid size={12}>
+            <Typography variant="h4">Métodos</Typography>
+          </Grid>
+          {CARDS.map((item) => {
+            return (
+              <Grid key={`grid-${item.title}`} size={{ md: 3, sm: 6, xs: 6 }}>
+                <BasicCard
+                  key={`card-${item.title}`}
+                  title={item.title}
+                  value={item.value}
+                />
+              </Grid>
+            )
+          })}
+          <Grid
+            size={12}
+            spacing={2}
+            container
+            direction="row"
+            sx={{
+              justifyContent: 'flex-end',
+              alignItems: 'flex-start'
+            }}
+          >
+            <Grid size={{ md: 4, sm: 9, xs: 9 }}>
+              <SearchField />
             </Grid>
-          )
-        })}
-        <Grid
-          size={12}
-          container
-          direction="row"
-          sx={{
-            justifyContent: 'flex-end',
-            alignItems: 'flex-start'
-          }}
-        >
-          Search options
+            <Grid size={{ md: 2, sm: 3, xs: 3 }}>
+              <Button
+                variant="contained"
+                sx={{ width: '100%', height: '48px', minHeight: '100%' }}
+                fullWidth
+                startIcon={<AddIcon />}
+                color={'success'}
+              >
+                Criar
+              </Button>
+            </Grid>
+          </Grid>
+          <Grid size={12}>table</Grid>
         </Grid>
-        <Grid spacing={12}>Search options</Grid>
-      </Grid>
+      </Container>
     </Box>
   )
 }

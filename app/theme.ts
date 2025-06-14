@@ -17,6 +17,9 @@ const theme = createTheme({
     },
     secondary: {
       main: '#f44336'
+    },
+    success: {
+      main: '#69f0ae'
     }
   },
   colorSchemes: { light: true, dark: true },
