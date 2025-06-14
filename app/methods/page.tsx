@@ -9,6 +9,8 @@ import { Button, Container } from '@mui/material'
 import SearchField from '@/components/SearchField'
 import AddIcon from '@mui/icons-material/Add'
 import { useEffect, useState } from 'react'
+import DataTable from '@/components/DataTable'
+import { GridColDef } from '@mui/x-data-grid'
 
 const CARDS = [
   {
@@ -28,6 +30,83 @@ const CARDS = [
     value: 6
   }
 ]
+
+const COLUMNS: GridColDef[] = [
+  { field: 'id', headerName: 'ID', flex: 1 },
+  { field: 'name', headerName: 'Nome', flex: 1 },
+  { field: 'stakeBase', headerName: 'Stake Base', type: 'number', flex: 1 },
+  {
+    field: 'settledBets',
+    headerName: 'Apostas',
+    type: 'number',
+    sortable: false,
+    flex: 1
+  },
+  {
+    field: 'accumulatedResult',
+    headerName: 'Resultado',
+    sortable: false,
+    type: 'number',
+    flex: 1
+  },
+  {
+    field: 'status',
+    headerName: 'Status',
+    sortable: false,
+    type: 'string',
+    flex: 1
+  }
+]
+
+const ROWS = [
+  {
+    id: 1,
+    name: 'Lay a Zebra HT 1.0',
+    stakeBase: 20,
+    settledBets: 18,
+    accumulatedResult: 300,
+    status: 'VALIDADO',
+    description: ''
+  },
+  {
+    id: 2,
+    name: 'Vovo 1.0',
+    stakeBase: 20,
+    settledBets: 10,
+    accumulatedResult: 30,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 3,
+    name: 'Lay ao Favorito HT 1.0',
+    stakeBase: 2,
+    settledBets: 4,
+    accumulatedResult: 40,
+    status: 'EM_VALIDACAO',
+    description: ''
+  },
+  {
+    id: 4,
+    name: 'Sniperback[Must Win]',
+    stakeBase: 3,
+    settledBets: 4,
+    accumulatedResult: 6,
+    status: 'ABANDONADO',
+    description: ''
+  },
+  {
+    id: 5,
+    name: 'Leitura',
+    stakeBase: 2,
+    settledBets: 1,
+    accumulatedResult: 10,
+    status: 'EM_VALIDACAO',
+    description: ''
+  }
+]
+
+const paginationModel = { page: 0, pageSize: 10 }
 
 // TODO xs = tela pequena; md = tela grande
 export default function MethodsPage() {
@@ -90,7 +169,19 @@ export default function MethodsPage() {
               </Button>
             </Grid>
           </Grid>
-          <Grid size={12}>{`window size ${windowWidth}`}</Grid>
+          <Grid
+            size={12}
+            container
+            direction="row"
+            sx={{
+              justifyContent: 'flex-end',
+              alignItems: 'flex-start'
+            }}
+          >
+            <Grid size={12}>
+              <DataTable />
+            </Grid>
+          </Grid>
         </Grid>
       </Container>
     </Box>
