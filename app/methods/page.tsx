@@ -89,6 +89,12 @@ const lineCells: LineCell[] = [
   { label: 'status', type: 'others' }
 ]
 
+const METHOD_STATUS: any = {
+  VALIDADO: 'Validado',
+  EM_VALIDACAO: 'Em Validação',
+  ABANDONADO: 'Abandonado'
+}
+
 const rows = [
   {
     id: 1,
@@ -140,6 +146,13 @@ const rows = [
 // TODO xs = tela pequena; md = tela grande
 export default function MethodsPage() {
   const [windowWidth, setWindowSize] = useState(0)
+
+  const formatRows = (data: any[]) => {
+    return data.map((item) => ({
+      ...item,
+      status: METHOD_STATUS[item.status]
+    }))
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -209,7 +222,7 @@ export default function MethodsPage() {
               <DataTable
                 headCells={headCells}
                 lineCells={lineCells}
-                rows={rows}
+                rows={formatRows(rows)}
               />
             </Grid>
           </Grid>
