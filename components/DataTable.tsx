@@ -62,7 +62,7 @@ export default function DataTable({
 
   const visibleRows = React.useMemo(
     () => [...rows].slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage),
-    [page, rowsPerPage]
+    [rows, page, rowsPerPage]
   )
 
   return (

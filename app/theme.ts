@@ -3,6 +3,24 @@
 import { createTheme } from '@mui/material/styles'
 import { Roboto } from 'next/font/google'
 
+declare module '@mui/material/styles' {
+  interface TypographyVariants {
+    customTitle: React.CSSProperties
+  }
+
+  // allow configuration using `createTheme()`
+  interface TypographyVariantsOptions {
+    customTitle?: React.CSSProperties
+  }
+}
+
+// Update the Typography's variant prop options
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    customTitle: true
+  }
+}
+
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
@@ -27,7 +45,11 @@ const theme = createTheme({
     colorSchemeSelector: 'class'
   },
   typography: {
-    fontFamily: roboto.style.fontFamily
+    fontFamily: roboto.style.fontFamily,
+    customTitle: {
+      fontSize: 30,
+      fontWeight: 800
+    }
   },
   components: {
     MuiAlert: {
