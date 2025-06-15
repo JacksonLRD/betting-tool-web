@@ -10,7 +10,6 @@ import SearchField from '@/components/SearchField'
 import AddIcon from '@mui/icons-material/Add'
 import { useEffect, useState } from 'react'
 import DataTable from '@/components/DataTable'
-import Link from '@mui/material/Link'
 
 const cards = [
   {
@@ -441,7 +440,7 @@ export default function MethodsPage() {
       <Container maxWidth={'lg'}>
         <Grid container spacing={2}>
           <Grid size={12}>
-            <Typography variant="customTitle">Métodos</Typography>
+            <Typography variant="customTitleH4">Métodos</Typography>
           </Grid>
           {cards.map((item) => {
             return (
@@ -468,21 +467,16 @@ export default function MethodsPage() {
               <SearchField />
             </Grid>
             <Grid size={{ md: 2, sm: 3, xs: 3 }}>
-              <Link
+              <Button
+                variant="contained"
                 href={'/methods/create'}
-                color="textPrimary"
-                underline="none"
+                sx={{ width: '100%', height: '48px', minHeight: '100%' }}
+                fullWidth
+                startIcon={<AddIcon />}
+                color={'success'}
               >
-                <Button
-                  variant="contained"
-                  sx={{ width: '100%', height: '48px', minHeight: '100%' }}
-                  fullWidth
-                  startIcon={<AddIcon />}
-                  color={'success'}
-                >
-                  {windowWidth >= 600 || windowWidth === 0 ? 'Criar' : ''}
-                </Button>
-              </Link>
+                {windowWidth >= 600 || windowWidth === 0 ? 'Criar' : ''}
+              </Button>
             </Grid>
           </Grid>
           <Grid

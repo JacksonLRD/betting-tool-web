@@ -5,19 +5,22 @@ import { Roboto } from 'next/font/google'
 
 declare module '@mui/material/styles' {
   interface TypographyVariants {
-    customTitle: React.CSSProperties
+    customTitleH4: React.CSSProperties
+    customTitleH1: React.CSSProperties
   }
 
   // allow configuration using `createTheme()`
   interface TypographyVariantsOptions {
-    customTitle?: React.CSSProperties
+    customTitleH4?: React.CSSProperties
+    customTitleH1?: React.CSSProperties
   }
 }
 
 // Update the Typography's variant prop options
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
-    customTitle: true
+    customTitleH4: true
+    customTitleH1: true
   }
 }
 
@@ -46,7 +49,11 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: roboto.style.fontFamily,
-    customTitle: {
+    customTitleH4: {
+      fontSize: 30,
+      fontWeight: 800
+    },
+    customTitleH1: {
       fontSize: 30,
       fontWeight: 800
     }

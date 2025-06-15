@@ -163,7 +163,7 @@ export default function MiniDrawer({ children }: any) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="customTitleH4" noWrap component="div">
             Betting Tool
           </Typography>
         </Toolbar>
