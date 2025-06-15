@@ -9,6 +9,7 @@ import { Button, Container } from '@mui/material'
 import SearchField from '@/components/SearchField'
 import AddIcon from '@mui/icons-material/Add'
 import DataTable from '@/components/DataTable'
+import NextLink from 'next/link'
 
 const cards = [
   {
@@ -458,6 +459,7 @@ export default function MethodsPage() {
                 fullWidth
                 startIcon={<AddIcon />}
                 color={'primary'}
+                component={NextLink}
               >
                 <Typography variant={'customSub'}>Criar</Typography>
               </Button>

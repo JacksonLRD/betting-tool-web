@@ -9,6 +9,7 @@ import Link from '@mui/material/Link'
 import IconButton from '@mui/material/IconButton'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import TextField from '@mui/material/TextField'
+import NextLink from 'next/link'
 
 const status = [
   {
@@ -39,7 +40,12 @@ export default function CreateMethodPage() {
               alignItems: 'center'
             }}
           >
-            <Link href={'/methods'} color="textPrimary" underline="none">
+            <Link
+              href={'/methods'}
+              color="textPrimary"
+              underline="none"
+              component={NextLink}
+            >
               <IconButton>
                 <ArrowBackIcon />
               </IconButton>
@@ -132,7 +138,7 @@ export default function CreateMethodPage() {
                   type="text"
                   size="small"
                   multiline
-                  rows={3}
+                  rows={4}
                 />
               </Grid>
             </Grid>
@@ -153,6 +159,7 @@ export default function CreateMethodPage() {
                   fullWidth
                   color={'primary'}
                   href={'/methods'}
+                  component={NextLink}
                 >
                   <Typography variant={'customSubSmall'}>Salvar</Typography>
                 </Button>

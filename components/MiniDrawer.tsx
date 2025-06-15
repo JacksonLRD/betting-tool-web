@@ -29,6 +29,7 @@ import CalculateIcon from '@mui/icons-material/Calculate'
 import BrowserUpdatedIcon from '@mui/icons-material/BrowserUpdated'
 import HelpIcon from '@mui/icons-material/Help'
 import Link from '@mui/material/Link'
+import NextLink from 'next/link'
 
 const primaryDrawerItems = [
   { name: 'Início', icon: HomeIcon, href: '/' },
@@ -185,6 +186,7 @@ export default function MiniDrawer({ children }: any) {
                 href={item.href}
                 color="textPrimary"
                 underline="none"
+                component={NextLink}
               >
                 <ListItem
                   key={item.name}
