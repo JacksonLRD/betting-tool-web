@@ -1,5 +1,5 @@
-import OverviewPage from '@/app/overview/page'
+import * as React from 'react'
 
 export default function Home() {
-  return <OverviewPage />
+  return <div>Home</div>
 }

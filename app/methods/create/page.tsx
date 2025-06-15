@@ -1,49 +1,182 @@
 'use client'
 
-import Link from 'next/link'
-import React from 'react'
-import { ArrowLeft } from 'lucide-react'
-import CreateMethodForm from '@/components/CreateMethodForm'
+import * as React from 'react'
+import Box from '@mui/material/Box'
+import { Button, Container, MenuItem } from '@mui/material'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import Link from '@mui/material/Link'
+import IconButton from '@mui/material/IconButton'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import TextField from '@mui/material/TextField'
+import NextLink from 'next/link'
 
-const CreateMethodPage = () => {
+const status = [
+  {
+    label: 'Validado',
+    value: 'VALIDADO'
+  },
+  {
+    label: 'Em Validação',
+    value: 'EM_VALIDACAO'
+  },
+  {
+    label: 'Abandonado',
+    value: 'ABANDONADO'
+  }
+]
+
+export default function CreateMethodPage() {
   return (
-    <div className="flex-1 overflow-auto relative z-10">
-      <main className="max-w-7xl mx-auto py-4 px-4 lg:px-8">
-        <div className="bg-[#1e1e1e] backdrop-blur-md shadow-lg rounded-xl p-4 md:p=6 border border-[#1f1f1f] mx-2 md:mx-0 mb-8">
-          <div className="flex flex-col md:flex-row justify-start items-center mb-6 gap-4 md:gap-0">
-            <ArrowLeft />
-            <h2 className="text-lg md:text-2xl mx-3 font-semibold text-gray-100 text-center md:text-left">
-              Criar Novo Método
-            </h2>
-          </div>
-          <form className="flex flex-col">
-            <div className="flex space-x-4 mb-4">
-              <input
-                className="bg-gray-700 text-white border-0 rounded-md p-2 w-2/4 focus:bg-gray-600 focus:outline-none transition ease-out duration-150 placeholder-gray-300"
-                placeholder="Nome"
+    <Box sx={{ flexGrow: 1 }}>
+      <Container maxWidth={'lg'}>
+        <Grid container spacing={2}>
+          <Grid
+            container
+            direction="row"
+            spacing={1}
+            sx={{
+              justifyContent: 'flex-start',
+              alignItems: 'center'
+            }}
+          >
+            <Link
+              href={'/methods'}
+              color="textPrimary"
+              underline="none"
+              component={NextLink}
+            >
+              <IconButton>
+                <ArrowBackIcon />
+              </IconButton>
+            </Link>
+
+            <Typography variant="customTitle">Criar Novo Método</Typography>
+          </Grid>
+          <Grid
+            size={12}
+            spacing={2}
+            container
+            direction="row"
+            sx={{
+              justifyContent: 'flex-start',
+              alignItems: 'flex-start'
+            }}
+          >
+            <Grid size={{ xs: 12, sm: 7, md: 5 }}>
+              <TextField
+                fullWidth
+                id="name-method-input"
+                label="Nome"
                 type="text"
+                size="small"
               />
-              <input
-                className="bg-gray-700 text-white border-0 rounded-md p-2 w-1/4 focus:bg-gray-600 focus:outline-none transition ease-out duration-150 placeholder-gray-300"
-                placeholder="Stake Base"
-                type="text"
-              />
-              <input
-                className="bg-gray-700 text-white border-0 rounded-md p-2 w-1/4 focus:bg-gray-600 focus:outline-none transition ease-out duration-150 placeholder-gray-300"
-                placeholder="Status"
-                type="text"
-              />
-            </div>
-            <input
-              className="bg-gray-700 text-white border-0 rounded-md p-2 focus:bg-gray-600 focus:outline-none transition ease-out duration-150 placeholder-gray-300"
-              placeholder="Descrição"
-              type="text"
-            />
-          </form>
-        </div>
-      </main>
-    </div>
+            </Grid>
+            <Grid
+              size={12}
+              spacing={2}
+              container
+              direction="row"
+              sx={{
+                justifyContent: 'flex-start',
+                alignItems: 'flex-start'
+              }}
+            >
+              <Grid size={{ xs: 12, sm: 3, md: 2 }}>
+                <TextField
+                  fullWidth
+                  id="stake-base-method-input"
+                  label="Stake"
+                  type="text"
+                  size="small"
+                />
+              </Grid>
+              <Grid size={{ xs: 12, sm: 4, md: 3 }}>
+                <TextField
+                  fullWidth
+                  select
+                  id="status-method-input"
+                  label="Status"
+                  defaultValue={''}
+                  type="text"
+                  size="small"
+                >
+                  {status.map((option) => (
+                    <MenuItem key={option.label} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid
+            size={12}
+            spacing={2}
+            container
+            direction="row"
+            sx={{
+              justifyContent: 'flex-start',
+              alignItems: 'flex-start'
+            }}
+          >
+            <Grid
+              size={12}
+              spacing={2}
+              container
+              direction="row"
+              sx={{
+                justifyContent: 'flex-start',
+                alignItems: 'flex-start'
+              }}
+            >
+              <Grid size={{ xs: 12, sm: 7, md: 5 }}>
+                <TextField
+                  fullWidth
+                  id="observations-method-input"
+                  label="Observações"
+                  type="text"
+                  size="small"
+                  multiline
+                  rows={4}
+                />
+              </Grid>
+            </Grid>
+            <Grid
+              size={12}
+              spacing={2}
+              container
+              direction="row"
+              sx={{
+                justifyContent: 'flex-start',
+                alignItems: 'flex-start'
+              }}
+            >
+              <Grid size={{ xs: 12, sm: 3, md: 1 }}>
+                <Button
+                  variant="contained"
+                  size={'medium'}
+                  fullWidth
+                  color={'primary'}
+                  href={'/methods'}
+                  component={NextLink}
+                >
+                  <Typography variant={'customSubSmall'}>Salvar</Typography>
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid
+            size={12}
+            container
+            direction="row"
+            sx={{
+              justifyContent: 'flex-end',
+              alignItems: 'flex-start'
+            }}
+          ></Grid>
+        </Grid>
+      </Container>
+    </Box>
   )
 }
-
-export default CreateMethodPage
