@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography'
 import { Button, Container } from '@mui/material'
 import SearchField from '@/components/SearchField'
 import AddIcon from '@mui/icons-material/Add'
-import { useEffect, useState } from 'react'
 import DataTable from '@/components/DataTable'
 
 const cards = [
@@ -456,7 +455,6 @@ export default function MethodsPage() {
               <Button
                 variant="contained"
                 href={'/methods/create'}
-                sx={{ width: '100%', height: '48px', minHeight: '100%' }}
                 fullWidth
                 startIcon={<AddIcon />}
                 color={'primary'}
