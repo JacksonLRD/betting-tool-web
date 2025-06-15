@@ -45,7 +45,7 @@ export default function CreateMethodPage() {
               </IconButton>
             </Link>
 
-            <Typography variant="customTitleH4">Criar Novo Método</Typography>
+            <Typography variant="customTitle">Criar Novo Método</Typography>
           </Grid>
           <Grid
             size={12}
@@ -146,7 +146,7 @@ export default function CreateMethodPage() {
                 alignItems: 'flex-start'
               }}
             >
-              <Grid size={{ xs: 12, sm: 3, md: 2 }}>
+              <Grid size={{ xs: 12, sm: 3, md: 1 }}>
                 <Button
                   variant="contained"
                   size={'medium'}
@@ -154,7 +154,7 @@ export default function CreateMethodPage() {
                   color={'primary'}
                   href={'/methods'}
                 >
-                  Salvar
+                  <Typography variant={'customSubSmall'}>Salvar</Typography>
                 </Button>
               </Grid>
             </Grid>

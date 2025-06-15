@@ -440,7 +440,7 @@ export default function MethodsPage() {
       <Container maxWidth={'lg'}>
         <Grid container spacing={2}>
           <Grid size={12}>
-            <Typography variant="customTitleH4">Métodos</Typography>
+            <Typography variant="customTitle">Métodos</Typography>
           </Grid>
           {cards.map((item) => {
             return (
@@ -473,9 +473,9 @@ export default function MethodsPage() {
                 sx={{ width: '100%', height: '48px', minHeight: '100%' }}
                 fullWidth
                 startIcon={<AddIcon />}
-                color={'success'}
+                color={'primary'}
               >
-                {windowWidth >= 600 || windowWidth === 0 ? 'Criar' : ''}
+                <Typography variant={'customSub'}>Criar</Typography>
               </Button>
             </Grid>
           </Grid>
