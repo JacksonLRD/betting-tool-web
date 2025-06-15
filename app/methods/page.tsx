@@ -414,26 +414,12 @@ const rows = [
 ]
 
 export default function MethodsPage() {
-  const [windowWidth, setWindowSize] = useState(0)
-
   const formatRows = (data: any[]) => {
     return data.map((item) => ({
       ...item,
       status: METHOD_STATUS[item.status]
     }))
   }
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize(window?.innerWidth)
-    }
-
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
 
   return (
     <Box sx={{ flexGrow: 1 }}>
