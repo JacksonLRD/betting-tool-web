@@ -35,4 +35,4 @@ secrets.txt
 Thumbs.db
 
 # Environment variables
-*.env*
+*.env
