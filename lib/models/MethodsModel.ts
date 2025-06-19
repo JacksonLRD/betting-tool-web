@@ -6,10 +6,16 @@ const methodSchema = new Schema(
     stakeBase: { type: 'number', required: true },
     settledBets: { type: 'number' },
     accumulatedResult: { type: 'number' },
-    status: { type: 'string' },
-    description: { type: 'string' }
+    status: { type: 'string', required: true },
+    description: { type: 'string' },
+    createdAt: { type: Date },
+    updatedAt: { type: Date },
+    active: { type: 'boolean', default: true }
   },
-  { collection: 'methods' }
+  {
+    collection: 'methods',
+    timestamps: true
+  }
 )
 
 export const MethodsModel = models.Methods || model('Methods', methodSchema)

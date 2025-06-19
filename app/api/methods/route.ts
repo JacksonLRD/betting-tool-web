@@ -18,3 +18,13 @@ export const POST = async (request: NextRequest) => {
     return routeErrorHandler(error)
   }
 }
+
+export const GET = async () => {
+  try {
+    const result = await methodService.list()
+
+    return NextResponse.json(result, { status: 200 })
+  } catch (error) {
+    return routeErrorHandler(error)
+  }
+}
