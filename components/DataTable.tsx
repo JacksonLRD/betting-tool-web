@@ -28,15 +28,17 @@ interface DataTableProps {
   headCells: HeadCell[]
   lineCells: LineCell[]
   rows: any[]
+  rowsPerPageOptions?: number[]
 }
+
+const ROWS_PER_PAGE_OPTIONS: number[] = [5, 10, 25]
 
 export default function DataTable({
   headCells,
   lineCells,
-  rows
+  rows,
+  rowsPerPageOptions = ROWS_PER_PAGE_OPTIONS
 }: DataTableProps) {
-  console.log('rows', rows)
-
   const [page, setPage] = React.useState(0)
   const [rowsPerPage, setRowsPerPage] = React.useState(5)
 
@@ -63,7 +65,9 @@ export default function DataTable({
     }
 
     if (type === 'money') {
-      return value.toLocaleString('pt-BR', {
+      const formatValue = value === 0 ? Number(value) : Number(value) / 100
+
+      return formatValue.toLocaleString('pt-BR', {
         style: 'currency',
         currency: 'BRL',
         minimumFractionDigits: 2
@@ -137,7 +141,7 @@ export default function DataTable({
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={rowsPerPageOptions}
           component="div"
           count={rows.length}
           rowsPerPage={rowsPerPage}

@@ -105,14 +105,10 @@ export default function MethodsPage() {
   const listMethodsCallback = useCallback(async () => {
     const methods = await listMethods()
 
-    console.log('methods', methods)
-
     setRows(methods)
   }, [setRows])
 
   const formatRows = (data: any[]) => {
-    console.log(data)
-
     return data.map((item) => ({
       ...item,
       status: METHOD_STATUS[item.status]
