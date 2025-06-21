@@ -12,6 +12,7 @@ export default function SearchField() {
         placeholder="Pesquisar..."
         inputProps={{ 'aria-label': 'pesquisar' }}
         size={'small'}
+        disabled={true}
       />
       <IconButton type="button" aria-label="pesquisar">
         <SearchIcon />
