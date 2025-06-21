@@ -130,8 +130,8 @@ export default function MethodsPage() {
     let abandoned = 0
 
     for (const method of methods) {
-      if (method.status === 'EM_VALIDACAO') validated += 1
-      else if (method.status === 'VALIDADO') inValidation += 1
+      if (method.status === 'EM_VALIDACAO') inValidation += 1
+      else if (method.status === 'VALIDADO') validated += 1
       else if (method.status === 'ABANDONADO') abandoned += 1
     }
 
@@ -146,7 +146,6 @@ export default function MethodsPage() {
   const listMethodsCallback = useCallback(async () => {
     const methods = await listMethods()
 
-    updateCardValues(methods)
     setRows(methods)
   }, [setRows])
 
@@ -156,6 +155,14 @@ export default function MethodsPage() {
       status: METHOD_STATUS[item.status]
     }))
   }
+
+  function handleDelete(id: string) {
+    setRows((prev) => prev.filter((row) => row.id !== id))
+  }
+
+  useEffect(() => {
+    updateCardValues(rows)
+  }, [rows])
 
   useEffect(() => {
     listMethodsCallback()
@@ -221,6 +228,7 @@ export default function MethodsPage() {
                   lineCells={LINE_CELLS}
                   rows={formatRows(rows)}
                   rowsPerPageOptions={[15]}
+                  onDelete={handleDelete}
                 />
               ) : (
                 <DataTable
@@ -228,6 +236,7 @@ export default function MethodsPage() {
                   lineCells={LINE_CELLS_SM}
                   rows={formatRows(rows)}
                   rowsPerPageOptions={[15]}
+                  onDelete={handleDelete}
                 />
               )}
             </Grid>

@@ -10,6 +10,10 @@ import TableHead from '@mui/material/TableHead'
 import TablePagination from '@mui/material/TablePagination'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
+import VisibilityIcon from '@mui/icons-material/Visibility'
+import DeleteIcon from '@mui/icons-material/Delete'
+import IconButton from '@mui/material/IconButton'
+import { Tooltip } from '@mui/material'
 
 interface HeadCell {
   id: string
@@ -29,6 +33,7 @@ interface DataTableProps {
   lineCells: LineCell[]
   rows: any[]
   rowsPerPageOptions?: number[]
+  onDelete?: (id: string) => void
 }
 
 const ROWS_PER_PAGE_OPTIONS: number[] = [5, 10, 25]
@@ -37,7 +42,8 @@ export default function DataTable({
   headCells,
   lineCells,
   rows,
-  rowsPerPageOptions = ROWS_PER_PAGE_OPTIONS
+  rowsPerPageOptions = ROWS_PER_PAGE_OPTIONS,
+  onDelete
 }: DataTableProps) {
   const [page, setPage] = React.useState(0)
   const [rowsPerPage, setRowsPerPage] = React.useState(rowsPerPageOptions[0])
@@ -77,6 +83,12 @@ export default function DataTable({
     return value
   }
 
+  const handleDelete = (id: string) => {
+    if (window.confirm('Tem certeza que deseja apagar?')) {
+      onDelete?.(id)
+    }
+  }
+
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0
@@ -102,6 +114,7 @@ export default function DataTable({
                     {headCell.label}
                   </TableCell>
                 ))}
+                <TableCell align={'left'}>Ações</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -121,6 +134,21 @@ export default function DataTable({
                         })}
                       </TableCell>
                     ))}
+                    <TableCell align={'left'}>
+                      <Tooltip title="Mostrar">
+                        <IconButton aria-label="mostrar">
+                          <VisibilityIcon />
+                        </IconButton>
+                      </Tooltip>
+                      <Tooltip title="Apagar">
+                        <IconButton
+                          aria-label="apagar"
+                          onClick={() => handleDelete(row.id)}
+                        >
+                          <DeleteIcon color={'secondary'} />
+                        </IconButton>
+                      </Tooltip>
+                    </TableCell>
                   </TableRow>
                 )
               })}
