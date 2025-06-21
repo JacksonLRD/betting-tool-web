@@ -14,7 +14,13 @@ export const useCreateMethod = () => {
     formState: { errors, isSubmitting, isValid }
   } = useForm<MethodSchema>({
     resolver: zodResolver(methodSchema),
-    mode: 'onChange'
+    mode: 'onBlur',
+    defaultValues: {
+      name: '',
+      stakeBase: 0,
+      status: '',
+      description: ''
+    }
   })
 
   const onSubmit = async (data: MethodSchema) => {

@@ -103,7 +103,6 @@ export default function CreateMethodPage() {
                     fullWidth
                     id="stake-base-method-input"
                     label="Stake"
-                    type="number"
                     size="small"
                     {...register('stakeBase', { valueAsNumber: true })}
                     error={!!errors.stakeBase}
@@ -182,7 +181,7 @@ export default function CreateMethodPage() {
                     size={'medium'}
                     fullWidth
                     color={'primary'}
-                    disabled={!isValid}
+                    disabled={isSubmitting || !isValid}
                   >
                     <Typography variant={'customSubSmall'}>Salvar</Typography>
                   </Button>
