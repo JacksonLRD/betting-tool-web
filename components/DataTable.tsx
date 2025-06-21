@@ -40,7 +40,7 @@ export default function DataTable({
   rowsPerPageOptions = ROWS_PER_PAGE_OPTIONS
 }: DataTableProps) {
   const [page, setPage] = React.useState(0)
-  const [rowsPerPage, setRowsPerPage] = React.useState(5)
+  const [rowsPerPage, setRowsPerPage] = React.useState(rowsPerPageOptions[0])
 
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage)

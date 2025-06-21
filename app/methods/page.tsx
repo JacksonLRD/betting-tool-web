@@ -101,10 +101,48 @@ const METHOD_STATUS: any = {
 export default function MethodsPage() {
   const { listMethods } = useMethods()
   const [rows, setRows] = useState<Method[]>([])
+  const [cardValues, setCardValues] = useState([
+    {
+      title: 'Quantidade',
+      value: 0
+    },
+    {
+      title: 'Em Validação',
+      value: 0
+    },
+    {
+      title: 'Validados',
+      value: 0
+    },
+    {
+      title: 'Abandonados',
+      value: 0
+    }
+  ])
+
+  const updateCardValues = (methods: Method[]) => {
+    let validated = 0
+    let inValidation = 0
+    let abandoned = 0
+
+    for (const method of methods) {
+      if (method.status === 'EM_VALIDACAO') validated += 1
+      else if (method.status === 'VALIDADO') inValidation += 1
+      else if (method.status === 'ABANDONADO') abandoned += 1
+    }
+
+    setCardValues([
+      { title: 'Quantidade', value: methods.length },
+      { title: 'Validados', value: validated },
+      { title: 'Em Validação', value: inValidation },
+      { title: 'Abandonados', value: abandoned }
+    ])
+  }
 
   const listMethodsCallback = useCallback(async () => {
     const methods = await listMethods()
 
+    updateCardValues(methods)
     setRows(methods)
   }, [setRows])
 
@@ -126,7 +164,7 @@ export default function MethodsPage() {
           <Grid size={12}>
             <Typography variant="customTitle">Métodos</Typography>
           </Grid>
-          {CARDS.map((item) => {
+          {cardValues.map((item) => {
             return (
               <Grid key={`grid-${item.title}`} size={{ md: 3, sm: 6, xs: 12 }}>
                 <BasicCard
@@ -177,6 +215,7 @@ export default function MethodsPage() {
                 headCells={HEAD_CELLS}
                 lineCells={LINE_CELLS}
                 rows={formatRows(rows)}
+                rowsPerPageOptions={[15]}
               />
             </Grid>
           </Grid>
