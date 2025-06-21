@@ -13,25 +13,7 @@ import NextLink from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
 import { useMethods } from '@/app/methods/useMethods'
 import { Method } from '@/lib/interfaces/Method'
-
-const CARDS = [
-  {
-    title: 'Quantidade',
-    value: 6
-  },
-  {
-    title: 'Em Validação',
-    value: 6
-  },
-  {
-    title: 'Validados',
-    value: 6
-  },
-  {
-    title: 'Abandonados',
-    value: 6
-  }
-]
+import { useBreakpoint } from '@/utils/useBreakpoint'
 
 const HEAD_CELLS = [
   {
@@ -78,6 +60,23 @@ const HEAD_CELLS = [
   }
 ]
 
+const HEAD_CELLS_SM = [
+  {
+    id: 'name',
+    align: 'left',
+    disablePadding: false,
+    label: 'Nome',
+    sortable: false
+  },
+  {
+    id: 'stakeBase',
+    align: 'left',
+    disablePadding: false,
+    label: 'Stake Base',
+    sortable: false
+  }
+]
+
 interface LineCell {
   label: string
   type: 'money' | 'date' | 'number' | 'others'
@@ -90,6 +89,11 @@ const LINE_CELLS: LineCell[] = [
   { label: 'settledBets', type: 'number' },
   { label: 'accumulatedResult', type: 'money' },
   { label: 'status', type: 'others' }
+]
+
+const LINE_CELLS_SM: LineCell[] = [
+  { label: 'name', type: 'others' },
+  { label: 'stakeBase', type: 'money' }
 ]
 
 const METHOD_STATUS: any = {
@@ -211,12 +215,21 @@ export default function MethodsPage() {
             }}
           >
             <Grid size={12}>
-              <DataTable
-                headCells={HEAD_CELLS}
-                lineCells={LINE_CELLS}
-                rows={formatRows(rows)}
-                rowsPerPageOptions={[15]}
-              />
+              {useBreakpoint() === 'md ou maior' ? (
+                <DataTable
+                  headCells={HEAD_CELLS}
+                  lineCells={LINE_CELLS}
+                  rows={formatRows(rows)}
+                  rowsPerPageOptions={[15]}
+                />
+              ) : (
+                <DataTable
+                  headCells={HEAD_CELLS_SM}
+                  lineCells={LINE_CELLS_SM}
+                  rows={formatRows(rows)}
+                  rowsPerPageOptions={[15]}
+                />
+              )}
             </Grid>
           </Grid>
         </Grid>

@@ -90,11 +90,7 @@ export default function DataTable({
     <Box sx={{ width: '100%' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
         <TableContainer>
-          <Table
-            sx={{ minWidth: 750 }}
-            aria-labelledby="tableTitle"
-            size={'medium'}
-          >
+          <Table aria-labelledby="tableTitle" size={'medium'}>
             <TableHead>
               <TableRow>
                 {headCells.map((headCell) => (
