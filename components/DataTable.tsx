@@ -21,7 +21,7 @@ interface HeadCell {
 
 interface LineCell {
   label: string
-  type: 'money' | 'date' | 'others'
+  type: 'money' | 'date' | 'number' | 'others'
 }
 
 interface DataTableProps {
@@ -35,6 +35,8 @@ export default function DataTable({
   lineCells,
   rows
 }: DataTableProps) {
+  console.log('rows', rows)
+
   const [page, setPage] = React.useState(0)
   const [rowsPerPage, setRowsPerPage] = React.useState(5)
 
@@ -49,12 +51,27 @@ export default function DataTable({
     setPage(0)
   }
 
-  const formatMoney = (amount: number) =>
-    amount.toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-      minimumFractionDigits: 2
-    })
+  const formateRowValues = ({
+    type,
+    value = 0
+  }: {
+    type: string
+    value: number | string
+  }) => {
+    if (type === 'number') {
+      return value
+    }
+
+    if (type === 'money') {
+      return value.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+        minimumFractionDigits: 2
+      })
+    }
+
+    return value
+  }
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
@@ -98,9 +115,10 @@ export default function DataTable({
                         scope="row"
                         padding="normal"
                       >
-                        {lineCell.type === 'money'
-                          ? formatMoney(row[lineCell.label])
-                          : row[lineCell.label]}
+                        {formateRowValues({
+                          type: lineCell.type,
+                          value: row[lineCell.label]
+                        })}
                       </TableCell>
                     ))}
                   </TableRow>

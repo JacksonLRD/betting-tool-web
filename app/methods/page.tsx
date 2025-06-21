@@ -10,8 +10,11 @@ import SearchField from '@/components/SearchField'
 import AddIcon from '@mui/icons-material/Add'
 import DataTable from '@/components/DataTable'
 import NextLink from 'next/link'
+import { useCallback, useEffect, useState } from 'react'
+import { useMethods } from '@/app/methods/useMethods'
+import { Method } from '@/lib/interfaces/Method'
 
-const cards = [
+const CARDS = [
   {
     title: 'Quantidade',
     value: 6
@@ -30,7 +33,7 @@ const cards = [
   }
 ]
 
-const headCells = [
+const HEAD_CELLS = [
   {
     id: 'id',
     align: 'left',
@@ -77,14 +80,14 @@ const headCells = [
 
 interface LineCell {
   label: string
-  type: 'money' | 'date' | 'others'
+  type: 'money' | 'date' | 'number' | 'others'
 }
 
-const lineCells: LineCell[] = [
+const LINE_CELLS: LineCell[] = [
   { label: 'id', type: 'others' },
   { label: 'name', type: 'others' },
   { label: 'stakeBase', type: 'money' },
-  { label: 'settledBets', type: 'others' },
+  { label: 'settledBets', type: 'number' },
   { label: 'accumulatedResult', type: 'money' },
   { label: 'status', type: 'others' }
 ]
@@ -95,331 +98,30 @@ const METHOD_STATUS: any = {
   ABANDONADO: 'Abandonado'
 }
 
-const rows = [
-  {
-    id: 1,
-    name: 'Lay a Zebra HT 1.0',
-    stakeBase: 20,
-    settledBets: 18,
-    accumulatedResult: 300,
-    status: 'VALIDADO',
-    description: ''
-  },
-  {
-    id: 2,
-    name: 'Vovo 1.0',
-    stakeBase: 20,
-    settledBets: 10,
-    accumulatedResult: 30,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 3,
-    name: 'Lay ao Favorito HT 1.0',
-    stakeBase: 2,
-    settledBets: 4,
-    accumulatedResult: 40,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 4,
-    name: 'Sniperback[Must Win]',
-    stakeBase: 3,
-    settledBets: 4,
-    accumulatedResult: 6,
-    status: 'ABANDONADO',
-    description: ''
-  },
-  {
-    id: 5,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 6,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 7,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 8,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 9,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 10,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 11,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 12,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 13,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 14,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 15,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 16,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 55,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 51,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 522,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 5111,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 56,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 59,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 523,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 5123,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 51111,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 522222,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 532323,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 125,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 5231111,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 2225,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 567,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 576,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 5777,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 5888,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  },
-  {
-    id: 589,
-    name: 'Leitura',
-    stakeBase: 2,
-    settledBets: 1,
-    accumulatedResult: 10,
-    status: 'EM_VALIDACAO',
-    description: ''
-  }
-]
-
 export default function MethodsPage() {
+  const { listMethods } = useMethods()
+  const [rows, setRows] = useState<Method[]>([])
+
+  const listMethodsCallback = useCallback(async () => {
+    const methods = await listMethods()
+
+    console.log('methods', methods)
+
+    setRows(methods)
+  }, [setRows])
+
   const formatRows = (data: any[]) => {
+    console.log(data)
+
     return data.map((item) => ({
       ...item,
       status: METHOD_STATUS[item.status]
     }))
   }
+
+  useEffect(() => {
+    listMethodsCallback()
+  }, [listMethodsCallback])
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -428,7 +130,7 @@ export default function MethodsPage() {
           <Grid size={12}>
             <Typography variant="customTitle">Métodos</Typography>
           </Grid>
-          {cards.map((item) => {
+          {CARDS.map((item) => {
             return (
               <Grid key={`grid-${item.title}`} size={{ md: 3, sm: 6, xs: 12 }}>
                 <BasicCard
@@ -476,8 +178,8 @@ export default function MethodsPage() {
           >
             <Grid size={12}>
               <DataTable
-                headCells={headCells}
-                lineCells={lineCells}
+                headCells={HEAD_CELLS}
+                lineCells={LINE_CELLS}
                 rows={formatRows(rows)}
               />
             </Grid>
